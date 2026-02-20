@@ -1,4 +1,3 @@
-/* Import modern font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 * {
@@ -12,47 +11,27 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh; /* changed from fixed height */
+  padding: 20px; /* prevents edge touching */
 }
 
-/* Animated background glow */
-body::before {
-  content: "";
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(0,255,255,0.4), transparent 70%);
-  top: -200px;
-  left: -200px;
-  animation: moveGlow 8s infinite alternate;
-}
-
-@keyframes moveGlow {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(200px, 150px); }
-}
-
+/* Glass container */
 .container {
-  position: relative;
   backdrop-filter: blur(20px);
   background: rgba(255, 255, 255, 0.08);
-  padding: 45px 35px;
-  width: 420px;
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 420px; /* responsive instead of fixed */
   border-radius: 20px;
   border: 1px solid rgba(255,255,255,0.2);
   box-shadow: 0 25px 50px rgba(0,0,0,0.5);
   text-align: center;
   color: white;
-  transition: 0.4s ease;
-}
-
-.container:hover {
-  transform: translateY(-5px);
+  transition: 0.3s ease;
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 28px;
   margin-bottom: 5px;
   background: linear-gradient(90deg, #00f5ff, #ff00c8);
   -webkit-background-clip: text;
@@ -61,7 +40,7 @@ h1 {
 }
 
 h2 {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 300;
   margin-bottom: 25px;
   opacity: 0.8;
@@ -76,7 +55,6 @@ h2 {
 label {
   font-size: 13px;
   text-align: left;
-  opacity: 0.85;
 }
 
 input,
@@ -89,42 +67,17 @@ textarea {
   font-size: 14px;
   background: rgba(255,255,255,0.15);
   color: white;
-  transition: 0.3s ease;
+  width: 100%;
 }
 
-select {
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  font-size: 14px;
-  background: rgba(255,255,255,0.15);
-  color: white;
-  appearance: none;
-  cursor: pointer;
-}
-
-/* Fix dropdown option colors */
 select option {
-  background: #1e293b;   /* Dark background */
-  color: white;          /* Visible text */
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: rgba(255,255,255,0.6);
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  background: rgba(255,255,255,0.25);
-  box-shadow: 0 0 10px rgba(0,255,255,0.6);
+  background: #1e293b;
+  color: white;
 }
 
 textarea {
   resize: none;
-  height: 100px;
+  min-height: 100px;
 }
 
 button {
@@ -137,10 +90,37 @@ button {
   background: linear-gradient(90deg, #00f5ff, #ff00c8);
   color: white;
   cursor: pointer;
-  transition: 0.4s ease;
+  transition: 0.3s ease;
 }
 
 button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 0, 200, 0.6);
+  transform: scale(1.03);
+}
+
+/* 🔥 MOBILE OPTIMIZATION */
+@media (max-width: 480px) {
+  .container {
+    padding: 30px 20px;
+    border-radius: 16px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 13px;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
 }
