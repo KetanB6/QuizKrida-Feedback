@@ -1,0 +1,146 @@
+/* Import modern font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Animated background glow */
+body::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0,255,255,0.4), transparent 70%);
+  top: -200px;
+  left: -200px;
+  animation: moveGlow 8s infinite alternate;
+}
+
+@keyframes moveGlow {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(200px, 150px); }
+}
+
+.container {
+  position: relative;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 45px 35px;
+  width: 420px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  text-align: center;
+  color: white;
+  transition: 0.4s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 5px;
+  background: linear-gradient(90deg, #00f5ff, #ff00c8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 15px;
+  font-weight: 300;
+  margin-bottom: 25px;
+  opacity: 0.8;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-size: 13px;
+  text-align: left;
+  opacity: 0.85;
+}
+
+input,
+select,
+textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  transition: 0.3s ease;
+}
+
+select {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  appearance: none;
+  cursor: pointer;
+}
+
+/* Fix dropdown option colors */
+select option {
+  background: #1e293b;   /* Dark background */
+  color: white;          /* Visible text */
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  background: rgba(255,255,255,0.25);
+  box-shadow: 0 0 10px rgba(0,255,255,0.6);
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #00f5ff, #ff00c8);
+  color: white;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 0, 200, 0.6);
+}
